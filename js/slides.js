@@ -195,13 +195,6 @@ const qStates = [
 ];
 qStates.forEach((s, i) => add({ variant: (i % 2 ? 'soft' : 'blue'), q: i, html: `${header('Phần 3 · 4-Queens', s.badge, i + 14)}<div class="queen-explain" style="max-width:60%;margin-top:42px"><div class="panel"><div class="kicker">TRẠNG THÁI</div><h3>${s.status}</h3><p style="margin-top:13px">${s.txt}</p></div><div class="timeline" style="margin-top:20px"><div class="tl"><div class="t">CHECK</div><div class="box">Cùng cột? Cùng chéo? Nếu có → <b class="red">loại</b>.</div></div><div class="tl"><div class="t">RECURSE</div><div class="box">Nếu an toàn → đặt hậu và đi xuống hàng tiếp.</div></div><div class="tl"><div class="t">UNDO</div><div class="box">Nếu ngõ cụt → gỡ hậu và quay về điểm rẽ.</div></div></div></div>` }));
 
-// Cây và phần minh họa mở rộng
-add(
-    base({
-        variant: 'soft',
-        html: `${header('Phần 3 · Minh họa', 'Bàn cờ là dữ liệu — cây là lịch sử quyết định', 27)}<div class="grid2" style="margin-top:27px"><div class="panel">${boardSVG(4, [[0, 1], [1, 3], [2, 0], [3, 2]])}</div><div class="panel"><h3>Một nghiệm hoàn chỉnh chỉ là <span class="accent">một đường đi</span> từ gốc xuống lá.</h3><p style="margin-top:13px">Nhánh đỏ là những trường hợp sai và đã bị dừng sớm.</p><div class="note">Nhìn vào cây sẽ dễ thấy lúc thuật toán đi xuống và lúc nó quay lại.</div></div></div>`
-    })
-);
 add(
     base({
         variant: 'lav',
