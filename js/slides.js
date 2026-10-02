@@ -203,12 +203,6 @@ add(
 );
 add(
     base({
-        variant: 'blue',
-        html: `${header('Phần 3 · Minh họa', 'Ba loại trạng thái dễ nhớ', 30)}${cards([{ k: 'VALID', t: 'Đi tiếp', b: 'Mọi ràng buộc đang được thỏa mãn.' }, { k: 'INVALID', t: 'Cắt nhánh', b: 'Một ràng buộc bị phá vỡ → dừng nhánh.' }, { k: 'SOLUTION', t: 'Nghiệm', b: 'Đã hoàn thành toàn bộ cấu trúc cần xây.' }])}<div class="panel" style="margin-top:23px"><b class="accent">Có thể nhớ đơn giản: <b>đặt — kiểm tra — đi sâu — sai thì gỡ — thử lại</b>.</div>`
-    })
-);
-add(
-    base({
         variant: 'soft',
         html: `${header('Phần 3 · Minh họa', 'Tìm một nghiệm hay tìm hết nghiệm?', 31)}<div class="grid2" style="margin-top:30px"><div class="panel build-item"><div class="kicker">DỪNG NGAY</div><h3>Tìm được nghiệm → dừng.</h3><p style="margin-top:10px">Trường hợp này hợp với đề chỉ cần một đáp án.</p></div><div class="panel build-item"><div class="kicker">ĐI TIẾP</div><h3>Ghi nhận nghiệm → thử tiếp.</h3><p style="margin-top:10px">Dùng khi đề yêu cầu tất cả đáp án.</p></div></div><div class="panel build-item" style="margin-top:20px">${queenMiniSummary()}<div class="note">Với 4-Queens, sau khi tìm được nghiệm đầu tiên, vẫn có thể quay lại để tìm nghiệm đối xứng còn lại.</div></div>`
     })
@@ -230,7 +224,7 @@ add(
 add(
     base({
         variant: 'blue',
-        html: `${header('Phần 4 · Python', 'N-Queens: biểu diễn trạng thái bằng bàn cờ', 35)}<div class="grid2" style="margin-top:30px"><div class="panel"><div class="kicker">REPRESENTATION</div><h3><code>board[row][col] = "Q"</code></h3><p style="margin-top:11px">Mỗi ô chứa <b>Q</b> nếu có hậu, còn lại là <b>.</b>. Mỗi hàng sẽ đặt đúng một quân hậu.</p><div class="note">Cách này nhìn trực tiếp trên bàn cờ nên dễ theo dõi khi giải bằng đệ quy.</div></div><div class="panel">${boardSVG(4, [[0, 1], [1, 3], [2, 0], [3, 2]])}</div></div>`
+        html: `${header('Phần 4 · Python', 'N-Queens: biểu diễn trạng thái bằng bàn cờ', 35)}<div class="grid2" style="margin-top:30px"><div class="panel"><div class="kicker">REPRESENTATION</div><h3><code>board[row][col] = "Q"</code></h3><p style="margin-top:11px">Mỗi ô chứa <b>"Q"</b> nếu có hậu, còn lại là <b>"."</b>. Mỗi hàng sẽ đặt đúng một quân hậu.</p><div class="note">Nhìn trực tiếp trên bàn cờ sẽ dễ theo dõi khi giải bằng đệ quy.</div></div><div class="panel">${boardSVG(4, [[0, 1], [1, 3], [2, 0], [3, 2]])}</div></div>`
     })
 );
 add(
@@ -294,7 +288,7 @@ add(
 add(
     base({
         variant: 'dark',
-        html: `${header('Section divider', 'TRỰC QUAN HÓA', 42)}<div style="margin-top:13vh"><div class="section-word" style="color:#E6FFFA">SEE<br><span style="color:#67E8F9">THE SEARCH</span></div><div class="section-sub" style="margin-top:18px;max-width:820px">Dùng <b>cây trạng thái + mô phỏng</b> để nhìn thấy chính quá trình Backtracking: chọn → kiểm tra → đi sâu → gặp ngõ cụt → quay lui → thử lựa chọn khác.</div></div>`
+        html: `${header('Section divider', 'TRỰC QUAN HÓA', 42)}<div style="margin-top:13vh"><div class="section-word" style="color:#E6FFFA">SEE<br><span style="color:#67E8F9">THE SEARCH</span></div><div class="section-sub" style="margin-top:18px;max-width:820px">Dùng <b>cây trạng thái + mô phỏng</b> để nhìn thấy quá trình Backtracking.</div></div>`
     })
 );
 add(
@@ -314,25 +308,25 @@ add(
 add(
     base({
         variant: 'dark',
-        html: `${header('Section divider', 'ĐỘ PHỨC TẠP THỜI GIAN', 49)}<div class="grid2" style="margin-top:12vh;align-items:center"><div><div class="section-word" style="color:#E6FFFA">HOW<br><span style="color:#FBBF24">FAST?</span></div><div class="section-sub">Cây có thể rất lớn. Điều đáng nói là pruning quyết định ta phải đi qua bao nhiêu nhánh.</div></div><div class="visual-panel howfast-visual" style="background:rgba(12,25,43,.45);border-color:rgba(164,188,215,.18)">${pruningCompareGraphic()}</div></div>`
+        html: `${header('Section divider', 'ĐỘ PHỨC TẠP THỜI GIAN', 49)}<div class="grid2" style="margin-top:12vh;align-items:center"><div><div class="section-word" style="color:#E6FFFA">HOW<br><span style="color:#FBBF24">FAST?</span></div><div class="section-sub">Cây có thể rất lớn. Pruning sẽ quyết định ta phải đi qua bao nhiêu nhánh.</div></div><div class="visual-panel howfast-visual" style="background:rgba(12,25,43,.45);border-color:rgba(164,188,215,.18)">${pruningCompareGraphic()}</div></div>`
     })
 );
 add(
     base({
         variant: 'soft',
-        html: `${header('Phần 6 · Thời gian', 'Có pruning thì số nhánh phải thử sẽ giảm', 50)}<div class="grid2" style="margin-top:34px"><div class="panel build-item"><div class="kicker">TỐT NHẤT</div><h3>Gặp nghiệm sớm hoặc loại được nhánh ngay từ đầu.</h3><p style="margin-top:10px">Đề chỉ cần một nghiệm thì có thể dừng luôn khi tìm thấy.</p></div><div class="panel build-item"><div class="kicker">XẤU NHẤT</div><h3>Cây vẫn rất lớn nếu ràng buộc không giúp cắt được nhiều.</h3><p style="margin-top:10px">Với N-Queens, số cấu hình cần xét có thể tăng theo <b>O(N!)</b>; vì mỗi lần đặt còn phải kiểm tra các hậu trước đó nên cận thô của đoạn code này là <b>O(N·N!)</b>. Brute-force thuần túy có thể lên tới <b>O(N^N)</b>.</p></div></div><div class="note">Thời gian thực tế còn phải phụ thuộc vào cách cài đặt và thứ tự thử.</div>`
+        html: `${header('Phần 6 · Thời gian', 'Có pruning thì số nhánh phải thử sẽ giảm', 50)}<div class="grid2" style="margin-top:34px"><div class="panel build-item"><div class="kicker">TỐT NHẤT</div><h3>Gặp nghiệm sớm hoặc loại được nhánh ngay từ đầu.</h3><p style="margin-top:10px">Đề chỉ cần một nghiệm thì có thể dừng luôn khi tìm thấy.</p></div><div class="panel build-item"><div class="kicker">XẤU NHẤT</div><h3>Cây vẫn rất lớn nếu ràng buộc không giúp cắt được nhiều.</h3><p style="margin-top:10px">Với N-Queens, số cấu hình cần xét có thể tăng theo <b>O(N!)</b>, vì mỗi lần đặt còn phải kiểm tra các hậu trước đó trong <b>isSafe()</b>, tốn tới <b>O(N)</b>, nên cận thô của đoạn code này là <b>O(N·N!)</b>.Nếu dùng Brute-force thuần túy có thể lên tới <b>O(N^N)</b>.</p></div></div><div class="note">Thời gian thực tế còn phải phụ thuộc vào cách cài đặt và thứ tự thử.</div>`
     })
 );
 add(
     base({
         variant: 'blue',
-        html: `${header('Phần 6 · Thời gian', 'Trường hợp trung bình phụ thuộc vào cách cài đặt', 51)}<div class="grid2" style="margin-top:26px"><div class="panel build-item">${complexityChart()}<div class="graph-explain"><div class="kicker">CÁCH ĐỌC ĐỒ THỊ</div><div class="graph-line"><b>Trục ngang:</b> kích thước bài toán → N lớn thì không gian trạng thái có xu hướng lớn hơn.</div><div class="graph-line"><b>Trục dọc:</b> lượng trạng thái / thời gian cần xử lý — chỉ mang tính định tính.</div><div class="graph-line"><b>Đường cao:</b> pruning yếu, nhánh sai đi sâu → phải xử lý nhiều trạng thái hơn.</div><div class="graph-line"><b>Đường thấp:</b> pruning tốt, nhánh sai dừng sớm → xử lý ít trạng thái hơn.</div><div class="graph-note">Các đường chỉ minh họa xu hướng để dễ hình dung, không phải 3 công thức Big-O cố định; “average case” thay đổi theo dữ liệu, thứ tự thử và cách kiểm tra ràng buộc.</div></div></div><div><div class="panel build-item"><div class="kicker">TRƯỚC KHI CẮT</div><div class="metric"><div class="value">nhiều trạng thái</div><div class="label">Mỗi nhánh còn được đi khá sâu.</div></div><div class="kicker" style="margin-top:18px">SAU KHI CẮT</div><div class="metric"><div class="value">ít trạng thái hơn</div><div class="label">Những nhánh sai bị dừng sớm.</div></div></div><div class="note">Không có một công thức “average case” dùng chung cho mọi bài backtracking. Thứ tự thử và cách kiểm tra ràng buộc ảnh hưởng rất nhiều.</div></div></div>`
+        html: `${header('Phần 6 · Thời gian', 'Trường hợp trung bình phụ thuộc vào cách cài đặt', 51)}<div class="grid2" style="margin-top:26px"><div class="panel build-item">${complexityChart()}<div class="graph-explain"><div class="kicker">CÁCH ĐỌC ĐỒ THỊ</div><div class="graph-line"><b>Trục ngang:</b> kích thước bài toán → N lớn thì không gian trạng thái có xu hướng lớn hơn.</div><div class="graph-line"><b>Trục dọc:</b> lượng trạng thái / thời gian cần xử lý — chỉ mang tính định tính.</div><div class="graph-line"><b>Đường cao:</b> pruning yếu, nhánh sai đi sâu → phải xử lý nhiều trạng thái hơn.</div><div class="graph-line"><b>Đường thấp:</b> pruning tốt, nhánh sai dừng sớm → xử lý ít trạng thái hơn.</div><div class="graph-note">Các đường chỉ minh họa xu hướng để dễ hình dung, không phải 3 công thức Big-O cố định.</div></div></div><div><div class="panel build-item"><div class="kicker">TRƯỚC KHI CẮT</div><div class="metric"><div class="value">nhiều trạng thái</div><div class="label">Mỗi nhánh còn được đi khá sâu.</div></div><div class="kicker" style="margin-top:18px">SAU KHI CẮT</div><div class="metric"><div class="value">ít trạng thái hơn</div><div class="label">Những nhánh sai bị dừng sớm.</div></div></div><div class="note">Không có một công thức “average case” dùng chung cho mọi bài backtracking. Thứ tự thử và cách kiểm tra ràng buộc ảnh hưởng rất nhiều.</div></div></div>`
     })
 );
 add(
     base({
         variant: 'soft',
-        html: `${header('Phần 6 · Thời gian', 'Nhìn nhanh 3 trường hợp', 54)}<table class="table" style="margin-top:30px"><tr><th>Tình huống</th><th>Điều xảy ra</th><th>Hệ quả</th></tr><tr><td><b>Tốt nhất</b></td><td>Gặp nghiệm / cắt nhánh sớm</td><td>Ít trạng thái</td></tr><tr><td><b>Trung bình</b></td><td>Phụ thuộc mạnh dữ liệu + thứ tự thử</td><td>Khó có công thức chung</td></tr><tr><td><b>Xấu nhất</b></td><td>Cây lớn, pruning yếu</td><td>Mũ / giai thừa</td></tr></table>`
+        html: `${header('Phần 6 · Thời gian', 'Thường có 3 trường hợp', 54)}<table class="table" style="margin-top:30px"><tr><th>Tình huống</th><th>Điều xảy ra</th><th>Hệ quả</th></tr><tr><td><b>Tốt nhất</b></td><td>Gặp nghiệm / cắt nhánh sớm</td><td>Ít trạng thái</td></tr><tr><td><b>Trung bình</b></td><td>Phụ thuộc mạnh dữ liệu + thứ tự thử</td><td>Khó có công thức chung</td></tr><tr><td><b>Xấu nhất</b></td><td>Cây lớn, pruning yếu</td><td>Số trạng thái tăng rất nhanh</td></tr></table>`
     })
 );
 
@@ -352,7 +346,7 @@ add(
 add(
     base({
         variant: 'blue',
-        html: `${header('Phần 7 · Không gian', 'Quay lui làm giảm lượng trạng thái phải giữ', 57)}<div class="space-process-layout"><div class="panel space-process-text"><div class="kicker">THEO DÕI MỘT NHÁNH</div><div class="space-process-row"><div class="space-process-num">1</div><div><h3>Chọn một lựa chọn</h3><p>Trạng thái hiện tại được cập nhật và gọi đệ quy xuống sâu hơn.</p></div></div><div class="space-process-row"><div class="space-process-num">2</div><div><h3>Đi sâu</h3><p>Stack có thêm một tầng, nhưng vẫn chỉ chứa <b>nhánh đang xét</b>.</p></div></div><div class="space-process-row"><div class="space-process-num red">3</div><div><h3>Gặp ngõ cụt</h3><p>Lời gọi sâu hơn kết thúc; không cần lưu tiếp các trạng thái phía dưới.</p></div></div><div class="space-process-row"><div class="space-process-num amber">4</div><div><h3>Quay lui</h3><p>Trạng thái cũ được gỡ, stack <b>pop</b>, rồi thử lựa chọn kế tiếp tại điểm rẽ.</p></div></div></div><div class="visual-panel space-process-visual">${spaceProcessGraphic()}</div></div><div class="note space-process-note">Vì các nhánh lần lượt được thử rồi giải phóng, Backtracking <b>không cần giữ toàn bộ cây tìm kiếm trong RAM</b>.</div>`
+        html: `${header('Phần 7 · Không gian', 'Quay lui làm giảm lượng trạng thái phải giữ', 57)}<div class="space-process-layout"><div class="panel space-process-text"><div class="kicker">THEO DÕI MỘT NHÁNH</div><div class="space-process-row"><div class="space-process-num">1</div><div><h3>Chọn một lựa chọn</h3><p>Trạng thái hiện tại được cập nhật và gọi đệ quy xuống sâu hơn.</p></div></div><div class="space-process-row"><div class="space-process-num">2</div><div><h3>Đi sâu</h3><p>Stack có thêm một tầng, nhưng vẫn chỉ chứa <b>nhánh đang xét</b>.</p></div></div><div class="space-process-row"><div class="space-process-num red">3</div><div><h3>Gặp ngõ cụt</h3><p>Lời gọi sâu hơn kết thúc; không cần lưu tiếp các trạng thái phía dưới.</p></div></div><div class="space-process-row"><div class="space-process-num amber">4</div><div><h3>Quay lui</h3><p>Trạng thái cũ được gỡ, stack <b>pop</b>, rồi thử lựa chọn kế tiếp tại điểm rẽ.</p></div></div></div><div class="visual-panel space-process-visual">${spaceProcessGraphic()}</div></div><div class="note space-process-note">Vì các nhánh lần lượt được thử rồi cắt, nên Backtracking <b>không cần giữ toàn bộ cây tìm kiếm trong RAM</b>.</div>`
     })
 );
 add(
@@ -409,7 +403,7 @@ add(
 add(
     base({
         variant: 'blue',
-        html: `${header('Kết luận', 'Ứng dụng của Backtracking', 66)}<div class="grid2" style="margin-top:30px"><div>${cards([{ k: '01', t: 'N-Queens', b: 'Đặt quân hậu sao cho không có hai quân tấn công nhau.' }, { k: '02', t: 'Letter Combinations', b: 'Mỗi chữ số mở ra 3–4 lựa chọn chữ cái; chọn một chữ, đi sâu rồi quay lui.' }, { k: '03', t: 'Mê cung', b: 'Thử đường đi; gặp ngõ cụt thì quay về điểm rẽ gần nhất.' }, { k: '04', t: 'Hoán vị / tập con', b: 'Mỗi bước quyết định chọn hay bỏ một phần tử.' }], 2)}</div><div class="visual-panel">${applicationGraphic()}</div></div>`
+        html: `${header('Kết luận', 'Ứng dụng của Backtracking', 66)}<div class="grid2" style="margin-top:30px"><div>${cards([{ k: '01', t: 'N-Queens', b: 'Đặt quân hậu sao cho không có hai quân tấn công nhau.' }, { k: '02', t: 'Letter Combinations', b: 'Mỗi chữ số mở ra 3–4 lựa chọn chữ cái, chọn một chữ, đi sâu rồi quay lui.' }, { k: '03', t: 'Mê cung', b: 'Thử đường đi, gặp ngõ cụt thì quay về điểm rẽ gần nhất.' }, { k: '04', t: 'Hoán vị / tập con', b: 'Mỗi bước quyết định chọn hay bỏ một phần tử.' }], 2)}</div><div class="visual-panel">${applicationGraphic()}</div></div>`
     })
 );
 add(
